@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/fish logo.png" type="image/x-icon">
+    <title>The Wandering Wave</title>
+    <script src="https://kit.fontawesome.com/f073c0302b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=" " />
+    <style>
+      * {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 100;
+      }
+      html{
+        scroll-behavior: smooth;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+        width: 100%;
+        position: fixed;
+        color: white;
+        
+      }
+      .logo h1 {
+        width: 400px;
+        margin-left: 20px;
+        font-size: 40px;
+        color: #a78041;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 900;
+      }
+      .cta {
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: white;
+      }
+      
+      .cta span {
+        padding-bottom: 7px;
+        letter-spacing: 4px;
+        font-size: 14px;
+        padding-right: 15px;
+        text-transform: uppercase;
+      }
+      .cta span a{
+        text-decoration: none;
+        color:black;
+        font-weight: 400;
+      }
+      
+      .hover-underline-animation {
+        position: relative;
+        color: #89785d;
+        padding-bottom: 20px;
+      }
+      
+      .hover-underline-animation:after {
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #89785d;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      .cta:hover .hover-underline-animation:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      #topButton {
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        position: fixed;
+        bottom: 40px;   
+        right: 40px;  
+        padding: 15px;  
+        transition: opacity 0.5s ease;
+        border-radius: 50px;
+        background-color: rgba(33, 184, 144, 0.509);
+      }
+      #topButton:hover{
+        background-color: rgb(44, 117, 98);
+        transition: .3s;
+      }
+      .about{
+        background-color: rgb(2, 21, 16);
+      }
+      .page-one{
+        height: 100vh;
+        background: url('https://github.com/ahmedsidd-qui/The-Wandering-Wave/blob/main/assets/visit.jpg?raw=true');
+        background-size:  cover;
+        width: 100%;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .page-one h2{
+        font-size: 6rem;
+        color: #000;
+        background-color: #89785d9d;
+        animation: slide 2s ease-in;
+      }
+      @keyframes slide {
+        0%{
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+        100%{
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      .about-page{
+        padding: 2rem;
+        text-align: center;
+        color: white;
+      }
+      .about-img {
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      .about-img img{
+        width: 300px;
+        height: 500px;
+        object-fit: cover;
+        color: white;
+      }
+      .about-page h1{
+        font-size: 70px;
+        color: white;
+        font-weight: 100;
+      }
+      .about-page h5{
+        color: #89785d;
+        font-style: italic;
+        font-size: 20px;
+        font-weight: 100;
+        padding-top: 40px;
+      }
+      .aboutp {
+        color: #fff;
+        margin: 10px 180px;
+        font-weight: 100;
+      }
+      .about-food{
+        color: #fff;
+        padding: 0 7rem;
+      
+      }
+      .about-food h2{
+        font-size: 3rem;
+        color: #89785d;
+      }
+      .about-food h4{
+        font-style: italic;
+        color: #89785d;
+      }
+      .menu1{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        background-color: #000;
+      }
+      .menu1 p{
+        font-size: 30px;
+        padding-top: 10px;
+        color:white;
+      }
+      .menu1 h3{
+        font-size: 40px;
+        padding-top: 10px;
+        color: #89785d;
+      }
+      .left{
+        width: 50vw;
+      }
+      .right{
+        padding: 30px;
+      }
+      .left img{
+        width: 100%;
+      }
+      .hours{
+        display: flex;
+        flex-direction: column;
+        background: url('https://github.com/ahmedsidd-qui/The-Wandering-Wave/blob/main/assets/visit.jpg?raw=true');
+        background-size: cover;
+        height: 100vh;
+        justify-content: center;
+        width: 100%;
+      }
+      #opening-hours h1{
+        color: #fff;
+        font-size: 6rem;
+        font-style: italic;
+      }
+      #opening-time p{
+        text-align: center;
+        color: #fff;
+        font-size: 3rem;
+      }
+      
+      .shop-products{
+        background-color: rgb(2, 21, 16);
+        color: #89785d;
+      
+      }
+      .shop-products h4{
+        font-size: 20px;
+        text-align: center;
+        padding-top:  20px;
+      }
+      .shop-products h1{
+        font-size: 70px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+      }
+      .shop-products p{
+        color: #fff;
+        text-align: center;
+        padding: 0 14rem;
+      }
+      #product-detail img {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+      }
+      #product-detail{
+        padding-top: 3rem;
+        display: flex;
+        justify-content: space-around;
+      }
+      .next{
+        text-align: center;
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+      }
+      .next i{
+        padding: 10px;
+      }
+      .after-product-img{
+        height: 50vh;
+      }
+      .after-product-img img{
+        height: 50vh;
+        width: 100%;
+        object-fit: cover;
+      }
+      .menu{
+        background-color: rgb(2, 21, 16);
+        color: #89785d;
+      }
+      .menu h1{
+        font-size: 4rem;
+        padding-top: 18px;
+        letter-spacing: 10px;
+        text-align: center;
+      }
+      
+      .menu-details{
+       color: #89785d;
+       display: flex;
+       justify-content: space-around  ;
+       align-items: center;
+       padding: 50px 0;
+      }
+      .menu-details h1{
+        font-size: 3rem;
+      }
+      .menu-details h2{
+        font-size: 3rem;
+      }
+      .menu-details h3{
+        font-size: 2rem;
+      }
+      .menu-details p{
+        color: #fff;
+      }
+      .menu-btn{
+        text-align: center;
+        padding-bottom: 50px;
+      }
+      .menu-btn button{
+        background: transparent;
+        padding: 10px 30px;
+        border: 1px solid #89785d;
+        color: #fff;
+      }
+      .menu-btn button:hover{
+        background-color: #89785d;
+        transition: .4s;
+      }
+      .visit-section{
+        display: flex;
+        align-items: center;
+        background-color: rgb(23, 52, 51);
+        color: #89785d;
+      }
+      .visit-content{
+        width: 50vw;
+        text-align: center;
+      }
+      .visit-content i{
+        padding: 0 10px;
+      }
+      .visit-content img{
+        width: 100%;
+        height: 100vh;
+      }
+      .visit-content h1{
+        font-size: 5rem;
+      }
+      .visit-content p{
+        color: #fff;
+      }
+      .visitup{
+        padding-bottom: 20px;
+      }
+      .visitdown{
+        padding-bottom: 20px;
+      }
+      .footer1{
+        text-align: center;
+        color: #fff;
+        background-color: rgb(2, 21, 16);
+        line-height: 30px;
+        padding: 50px;
+        letter-spacing: 2px;
+      }
+      .footer1 img{
+        width: 300px;
+      }
+      .footer1 a{
+        padding: 0 40px;  
+      }
+      .footer2{
+        background-color: #000;
+        color: #89785d;
+        letter-spacing: 4px;
+      }
+      .form-signin{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: end;
+        filter: drop-shadow(1px 1px 50px #000);
+        margin: 30vh 31vw 0 31vw;
+        position: absolute;
+        padding: 15px;
+      }
+      .form-signin h1{
+        font-size: 50px;
+        font-weight: 900;
+        color: #fff;
+        filter: drop-shadow(1px 1px 10px #000);
+      }
+      .form-signin input{
+        width: 400px;
+        height: 40px;
+        display: flex;
+        background-color: #000000c7; 
+        border: 1px solid #80808087;
+        color: #89785d ;
+        font-weight: 700;
+      }
+      .form-signin button{
+        padding: 10px 40px;
+        background-color: #0000005c;
+        color: #fff;
+        border: none;
+      }
+      .form-signin a{
+        color: #000;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <div class="logo">
+        <h1>Grill City</h1>
+      </div>
+      <div class="nav-items">
+        <button class="cta">
+          <span class="hover-underline-animation"
+            ><a href="#home">Home</a></span
+          >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </button>
+        <button class="cta">
+          <span class="hover-underline-animation"
+            ><a href="#about"> About </a></span
+          >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </button>
+        <button class="cta">
+          <span class="hover-underline-animation"
+            ><a href="#updates"> Updates </a></span
+          >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </button>
+        <button class="cta">
+          <span class="hover-underline-animation"
+            ><a href="#shop"> Shop </a></span
+          >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </button>
+        <button class="cta">
+          <span class="hover-underline-animation"
+            ><a href="contact.html"> Contact Us </a></span
+          >
+        <button class="cta">
+          <span class="hover-underline-animation"
+            ><a href="sign.html"> Sign In </a></span
+          >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </button>
+      </div>
+    </nav>
+    <button id="topButton"><i class="fa-solid fa-arrow-up fa-2xl" style="color: #fff;"></i></button>
+    <section class="content">
+    <section id="home">
+      <div class="page-one">
+        <h2>All you need is here</h2>
+      </div>
+    </section>
+    <section id="about" class="about">
+      <div class="about-page">
+        <h5>Our story</h5>
+        <h1>About Our Restaurant</h1>
+            <p>Welcome to [Grill City], where culinary dreams come true. Established in [2020], our restaurant has been a staple of [Nellore] for over [4] years. Our mission is to bring people together through delicious, thoughtfully prepared meals.</p>
+            <p>At [Grill City], we believe that food is not just about sustenance; it's about experience, culture, and community. Our menu is crafted with care, using the freshest ingredients sourced from local farmers and artisans. Whether you're craving a classic comfort dish or looking to try something new and exciting, we have something for everyone.</p>
+            <p>Our chefs are passionate about creating dishes that not only taste amazing but also tell a story. Each plate is a work of art, designed to tantalize your taste buds and leave you wanting more. From our signature vegan pizza to our delectable desserts, every bite is a testament to our commitment to quality and excellence.</p>
+            <p>But [Grill City] is more than just great food. It's a place where memories are made. Whether you're celebrating a special occasion, enjoying a night out with friends, or simply taking a break from the hustle and bustle of daily life, our restaurant offers a warm, inviting atmosphere that makes you feel right at home.</p>
+            <p>Thank you for choosing [Grill City]. We look forward to serving you and making your dining experience truly unforgettable.</p>
+        <div class="about-img">
+          <div class="about-food">
+            <h4>Our selection</h4>
+            <h2>Food</h2>
+            <p>Vegan Pizza
+
+              Description: A delightful combination of fresh vegetables, plant-based cheese, and a perfectly baked crust. This pizza offers all the traditional flavors with a vegan twist.
+              Hamburger Maison
+              
+              Description: Our signature burger features a juicy beef patty, freshly baked buns, and a variety of gourmet toppings. A classic favorite that never disappoints.
+              Fried Chicken
+              
+              Description: Crispy on the outside, tender and juicy on the inside. Our fried chicken is marinated in a special blend of spices and cooked to perfection.
+              Grilled Salmon
+              
+              Description: Fresh, succulent salmon fillet grilled to perfection. Served with a side of seasonal vegetables and a tangy lemon butter sauce.</p>
+          </div>
+          <img src="https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141353.jpg?size=626&ext=jpg&uid=R141409244&ga=GA1.1.415682264.1708495089&semt=ais_user " alt="" />
+          <div class="about-food">
+            <h4>Our choice</h4>
+            <h2>Drink</h2>
+            <p>Classic Mojito
+
+              Description: A refreshing blend of mint, lime, and sparkling soda, balanced with a hint of sweetness. Perfect for cooling off on a hot day.
+              Fresh Lemonade
+              
+              Description: Zesty and tangy, our freshly squeezed lemonade is a delightful thirst-quencher made with the finest lemons.
+              Strawberry Smoothie
+              
+              Description: A creamy and delicious smoothie made with ripe strawberries, yogurt, and a touch of honey. A healthy and tasty treat.
+              Iced Coffee
+              
+              Description: Our signature iced coffee, brewed to perfection and served over ice. Smooth, bold, and invigorating.
+              Green Tea
+              
+              Description: A soothing cup of premium green tea, known for its delicate flavor and numerous health benefits. Enjoy it hot or cold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="menu ">
+      <div class="menu1">
+        <div class="left right">
+          <i class="fa-solid fa-quote-left fa-2xl" style="color: #89785d;"></i>
+          <p>
+            One does not need a good kitchen to cook good food if one possesses a knowledge of ingredients and a love for cooking.
+          </p>
+          <h3>Alain Ducasse</h3>
+        </div>
+        <div class="left">
+          <img src="https://i.pinimg.com/564x/4b/99/99/4b999912c2b514d9805c010003c3fcd0.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+    <section id="updates">
+    <div id="opening-hours" class="hours">
+      <h1 id="opening-hour"><center> Upcoming Updates</center></h1>
+      <span id="timing-info"><p><center>Monday - Sunday <br>06:00PM - 01:00AM</center></br></p></span>
+    </div>
+  </section>
+  <section id="shop">
+    <div class="shop-products">
+      <h4>featured items</h4>
+      <h1>Shop Products</h1>
+      <p>Vegan Pizza
+
+        Description: A delightful combination of fresh vegetables, plant-based cheese, and a perfectly baked crust. This pizza offers all the traditional flavors with a vegan twist.</p>
+        <p>Hamburger Maison
+
+          Description: Our signature burger features a juicy beef patty, freshly baked buns, and a variety of gourmet toppings. A classic favorite that never disappoints.</p>
+          <p>Fried Chicken
+
+            Description: Crispy on the outside, tender and juicy on the inside. Our fried chicken is marinated in a special blend of spices and cooked to perfection.</p>
+      
+      <div id="product-detail">
+      </div>
+      <div class="next">
+      <i class="fa-solid fa-arrow-left fa-2xl"></i>
+      <i class="fa-solid fa-arrow-right fa-2xl"></i>
+    </div>
+    </div>
+  </section>
+    <div class="after-product-img">
+      <img src="./assets/images.jpg" alt="">
+    </div>
+    <div class="menu">
+    <div class="menu-heading">
+      <h1>MENU</h1>
+    </div>
+    <div class="menu-details">
+      <div class="menucol-1">
+        <div class="menu-item">
+        <h2>Maxican Pizza</h2>
+        <h3>chicken Masala</h3>
+        <p>Soft Drinks</p>
+      </div>
+        <div class="menu-item">
+        <h3>Fried Chicken</h3>
+        <p>Crispy on the outside, tender and juicy on the inside. </p>
+      </div>
+        <div class="menu-item">
+        <h3>Grilled Chicken 350</h3>
+        <p>chicken wings tossed in spicy, with celery and blue cheese</p>
+      </div>
+        <div class="menu-item">
+        <h3>Grilled Salmon 250</h3>
+        <p>Fresh, succulent salmon fillet grilled to perfection.</p>
+      </div>
+        </div>
+      <div class="menucol-2">
+        <div class="menu-item">
+        <h3>Crispy Calamari  - 340</h3>
+        <p>fried squid rings with marinara sauce</p>
+      </div>
+      <div class="menu-item">
+        <h3>Hummus & Pita Bread  - 250</h3>
+        <p>served with vegetables and olives</p>
+      </div>
+      </div>
+    </div>
+    <div class="menu-btn">
+      <button>VIEW ALL</button>
+    </div>
+  </div>
+    
+  <div class="visit-section">
+    <div class="visit-content">
+      <h3>Find the Resturent</h3>
+      <div class="visitup">
+      <h1>Visit Now</h1>
+      <p>Nellore, 99214671</br>reservation@xyz.com, office@xyz.com</br></p>
+    </div>
+    <div class="visitdown">
+      <p>Opening hours:</br>Monday - Friday : 06:00PM - 01:00AM</br>Saturday - Sunday : 07:00PM - 02:00AM</p>
+    </div>
+    <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-solid fa-envelope"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    <div class="visit-content">
+      <img src="https://images4.alphacoders.com/134/thumb-1920-1349317.png" alt="">
+    </div>
+  </div>
+  <footer>
+    <div class="footer1">
+    <img src="./assets/fish logo.png" alt="">
+    <p>Grill City</br>Nellore, 99214671, office@grillcity.com</br>Open: 06:00PM - 01:00AM</p>
+    <button class="cta">
+      <span class="hover-underline-animation"
+        ><a href="#about"> Facebook </a></span>
+    <button class="cta">
+      <span class="hover-underline-animation"
+        ><a href="#about"> Email </a></span>
+    <button class="cta">
+      <span class="hover-underline-animation"
+        ><a href="#about"> Whatsapp </a></span>
+  </div>
+  <div class="footer2">
+    <span>Copyright &copy2024; Grill City</span>
+  </div>
+  </footer>
+
+
+
+
+  </section>
+
+
+  <script src="main.js"></script>
+  </body>
+</html>
