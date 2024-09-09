@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'inventory/style.css' %}" />
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <div class="content-wrapper">
+    <header class="flex-space-between">
+      <nav>
+        <a href="{% url 'purchases' %}" class="nav-item{% if active_page|lower == '/'|lower %} nav-item--active{% endif %}">
+          Purchases
+        </a>
+        <a href="{% url 'menu_items' %}" class="nav-item{% if active_page|lower == '/menu-items'|lower %} nav-item--active{% endif %}">
+          Menu items
+        </a>
+        <a href="{% url 'ingredients' %}" class="nav-item{% if active_page|lower == '/ingredients'|lower %} nav-item--active{% endif %}">
+          Ingredients
+        </a>
+      </nav>
+      <a href="{% url 'logout' %}" class="nav-item">
+        Logout
+      </a>
+    </header>
+    {% block body %}
+    {% endblock %}
+  </div>
+</body>
+</html>

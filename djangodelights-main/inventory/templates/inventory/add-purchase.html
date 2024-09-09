@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Django Delights - Add purchase</title>
+{% endblock %}
+
+{% block body %}
+<h1>Add purchase</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if messages %}
+    {% for msg in messages %}
+        <div class="error-message">
+            {{ msg }}
+        </div>
+    {% endfor %}
+  {% endif %}
+  <input class="button button--full-width" type="submit" value="Add purchase">
+</form>
+{% endblock %}

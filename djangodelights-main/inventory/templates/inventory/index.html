@@ -1,0 +1,39 @@
+{% extends 'inventory/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Django Delights - Purchases</title>
+{% endblock %}
+
+{% block body %}
+<h1>Purchases</h1>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Menu item</th>
+        <th>Paid</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for purchase in object_list %}
+      <tr>
+        <td>{{ purchase.timestamp }}</td>
+        <td>{{ purchase.menu_item.name }}</td>
+        <td>${{ purchase.menu_item.price|stringformat:".2f" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<a href="{% url 'add_purchase' %}" class="button button--full-width">+ Add purchase</a>
+
+<h1>Financial report</h1>
+<p class="financial-report-p"><strong>Revenue:</strong> Rs.{{ revenue|stringformat:".2f" }}</p>
+<p class="financial-report-p"><strong>Cost:</strong> Rs.{{ cost|stringformat:".2f" }}</p>
+<p class="financial-report-p"><strong>Profit:</strong> Rs.{{ profit|stringformat:".2f" }}</p>
+{% endblock %}
